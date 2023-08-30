@@ -1,0 +1,57 @@
+{"properties": [
+  {
+    "name": "springdoc.openapi.ui.path",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.openapi.ui.path'"
+  },
+  {
+    "name": "spring.mapstruct.default-component-model",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mapstruct.default-component-model'"
+  },
+  {
+    "name": "spring.swagger.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.swagger.enabled'"
+  },
+  {
+    "name": "spring.swagger.path",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.swagger.path'"
+  },
+  {
+    "name": "spring.swagger.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.swagger.enabled'"
+  },
+  {
+    "name": "springdoc.swagger-ui.include-record-classes",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.swagger-ui.include-record-classes'"
+  },
+  {
+    "name": "springdoc.openapi.ui.include-record-classes",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.openapi.ui.include-record-classes'"
+  },
+  {
+    "name": "spring.doc.api-docs.path",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.doc.api-docs.path'"
+  },
+  {
+    "name": "spring.doc.swagger-ui.path",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.doc.swagger-ui.path'"
+  },
+  {
+    "name": "springdoc.openapi.ui.path",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.openapi.ui.path'"
+  },
+  {
+    "name": "spring.jpa.hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.dialect'"
+  }
+]}

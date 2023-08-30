@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: customer-service
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/booksellingdb?searchpath=customer_schema
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect        
+    show-sql: true  
+server:
+  port: 8081
+
+springdoc:
+  api-docs:
+    path: /swagger-ui.html
