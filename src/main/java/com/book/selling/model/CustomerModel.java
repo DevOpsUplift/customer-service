@@ -10,8 +10,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -19,39 +17,35 @@ import jakarta.validation.constraints.Size;
 public class CustomerModel {
 	UUID customerUid;
 
+	@NotNull(message = "Customer Code cannot be null")
+	@Size(min = 6, max=8, message = "Customer Code must be at least 6 and max 8 characters long")
 	Long customerCode;
 
 	@NotNull(message = "First name cannot be null")
-	@Size(min = 3, message = "First name must be at least 2 and max 20 characters long")
-	@Max(20)
+	@Size(min = 3,max=20, message = "First name must be at least 3 and max 20 characters long")
 	String firstName;
 
 	@NotNull(message = "Last name cannot be null")
-	@Size(min = 3, message = "First name must be at least 2 and max 20 characters long")
-	@Max(20)
+	@Size(min = 3, max=20, message = "Last name must be at least 3 and max 20 characters long")
 	String lastName;
 
-	@Min(2)
-	@Max(10)
 	String middleName;
 
 	@Past(message = "Date of birth must be in the past")
 	LocalDate dob;
 
-	@NotNull(message = "First name cannot be null")
-	@Size(min = 4, message = "Gendre must be at least 4 and max 6 haracters long")
-	@Max(8)
+	@NotNull(message = "Gender name cannot be null")
+	@Size(min = 4, max=5, message = "Gendre must be at least 4 and max 5 haracters long")
 	String gender;
 
-	@Past(message = "registrationDate must be in the past")
+	@Past(message = "Registration Date must be in the past")
 	LocalDate registrationDate;
 
 	@JsonDeserialize(using = LocalTimeDeserializer.class)
 	LocalTime lastLogin;
 
-	@NotNull(message = "First name cannot be null")
-	@Size(min = 4, message = "Status must be at least 4 and max 6characters long")
-	@Max(6)
+	@NotNull(message = "Status name cannot be null")
+	@Size(min = 4,max=8, message = "Status must be at least 4 and max 8 characters long")
 	String status;
 
 	@NotNull(message = "Email cannot be null")
@@ -73,13 +67,14 @@ public class CustomerModel {
 	public CustomerModel() {
 	}
 
-	public CustomerModel(UUID customerUid, Long customerCode,
-			@NotNull(message = "First name cannot be null") @Size(min = 3, message = "First name must be at least 2 and max 20 characters long") @Max(20) String firstName,
-			@NotNull(message = "Last name cannot be null") @Size(min = 3, message = "First name must be at least 2 and max 20 characters long") @Max(20) String lastName,
-			@Min(2) @Max(10) String middleName, @Past(message = "Date of birth must be in the past") LocalDate dob,
-			@NotNull(message = "First name cannot be null") @Size(min = 4, message = "Gendre must be at least 4 and max 6 haracters long") @Max(8) String gender,
-			@Past(message = "registrationDate must be in the past") LocalDate registrationDate, LocalTime lastLogin,
-			@NotNull(message = "First name cannot be null") @Size(min = 4, message = "Status must be at least 4 and max 6characters long") @Max(6) String status,
+	public CustomerModel(UUID customerUid,
+			@NotNull(message = "Customer Code cannot be null") @Size(min = 6, max = 8, message = "Customer Code must be at least 6 and max 8 characters long") Long customerCode,
+			@NotNull(message = "First name cannot be null") @Size(min = 3, max = 20, message = "First name must be at least 3 and max 20 characters long") String firstName,
+			@NotNull(message = "Last name cannot be null") @Size(min = 3, max = 20, message = "Last name must be at least 3 and max 20 characters long") String lastName,
+			String middleName, @Past(message = "Date of birth must be in the past") LocalDate dob,
+			@NotNull(message = "Gender name cannot be null") @Size(min = 4, max = 5, message = "Gendre must be at least 4 and max 5 haracters long") String gender,
+			@Past(message = "Registration Date must be in the past") LocalDate registrationDate, LocalTime lastLogin,
+			@NotNull(message = "Status name cannot be null") @Size(min = 4, max = 8, message = "Status must be at least 4 and max 8 characters long") String status,
 			@NotNull(message = "Email cannot be null") @Email(message = "Email should be valid") String email,
 			@NotNull(message = "Password cannot be null") @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters") String password,
 			@NotNull(message = "Addresses cannot be null") @Valid List<AddressModel> addressModels,

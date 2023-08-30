@@ -9,25 +9,23 @@ public class ContactModel {
 	UUID contactUid;
 	@NotNull(message = "Contact type cannot be null")
 	String contactType;
-	
+
 	@NotNull(message = "Number cannot be null")
-	String number;
-	
+	String value;
+
 	UUID customerUid;
 
 	public ContactModel() {
 	}
 
 	public ContactModel(UUID contactUid, @NotNull(message = "Contact type cannot be null") String contactType,
-			@NotNull(message = "Number cannot be null") String number, UUID customerUid) {
+			@NotNull(message = "Number cannot be null") String value, UUID customerUid) {
 		super();
 		this.contactUid = contactUid;
 		this.contactType = contactType;
-		this.number = number;
+		this.value = value;
 		this.customerUid = customerUid;
 	}
-
-
 
 	public UUID getContactUid() {
 		return contactUid;
@@ -45,12 +43,12 @@ public class ContactModel {
 		this.contactType = contactType;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getValue() {
+		return value;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public UUID getCustomerUid() {

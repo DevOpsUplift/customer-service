@@ -1,6 +1,5 @@
 package com.book.selling.controller;
 
-import java.time.LocalTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.book.selling.builder.CustomerModelBuilder;
 import com.book.selling.model.CustomerModel;
 import com.book.selling.model.LoginModel;
 import com.book.selling.serviceimpl.CustomerServiceImpl;
@@ -81,14 +79,11 @@ public class CustomerController {
 				|| !customerModelOptional.get().getPassword().equals(loginModel.getPassword())) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect password");
 		}
-
-		CustomerModel customerModel = new CustomerModelBuilder(customerModelOptional.get())
-				.lastLogin(LocalTime.now()).build();
-		if (!"ACTIVE".equals(customerModel.getStatus())) {
+		if (!"ACTIVE".equals(customerModelOptional.get().getStatus())) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Customer is not active");
 		}
 
-		customerService.updateCustomer(customerModel.getCustomerUid(), customerModel);
+		customerService.updateCustomer(customerModelOptional.get().getCustomerUid(), customerModelOptional.get());
 		return ResponseEntity.ok("Login successful");
 	}
 }
