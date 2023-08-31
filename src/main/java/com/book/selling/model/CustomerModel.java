@@ -18,7 +18,7 @@ public class CustomerModel {
 	UUID customerUid;
 
 	@NotNull(message = "Customer Code cannot be null")
-	@Size(min = 6, max=8, message = "Customer Code must be at least 6 and max 8 characters long")
+	//@Size(min = 6, max=8, message = "Customer Code must be at least 6 and max 8 characters long")
 	Long customerCode;
 
 	@NotNull(message = "First name cannot be null")

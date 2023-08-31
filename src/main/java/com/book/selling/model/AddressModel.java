@@ -30,18 +30,13 @@ public class AddressModel {
     @Max(value = 999999, message = "Postal code cannot exceed 999999")
 	Long postalCode;
 	
-	UUID customerUid;
-	
 	public AddressModel(){}
-
-	
 
 	public AddressModel(UUID addressUid, @NotNull(message = "address cannot be null") String addressLine1,
 			@NotNull(message = "AddressLine2 cannot be null") String addressLine2, String addressLine3,
 			@NotNull(message = "City cannot be null") String city,
 			@NotNull(message = "State cannot be null") String state,
-			@NotNull(message = "Postal code cannot be null") @Min(value = 1, message = "Postal code must be a positive number") @Max(value = 999999, message = "Postal code cannot exceed 999999") Long postalCode,
-			UUID customerUid) {
+			@NotNull(message = "Postal code cannot be null") @Min(value = 1, message = "Postal code must be a positive number") @Max(value = 999999, message = "Postal code cannot exceed 999999") Long postalCode) {
 		super();
 		this.addressUid = addressUid;
 		this.addressLine1 = addressLine1;
@@ -50,7 +45,6 @@ public class AddressModel {
 		this.city = city;
 		this.state = state;
 		this.postalCode = postalCode;
-		this.customerUid = customerUid;
 	}
 
 	public UUID getAddressUid() {
@@ -107,13 +101,5 @@ public class AddressModel {
 
 	public void setPostalCode(Long postalCode) {
 		this.postalCode = postalCode;
-	}
-
-	public UUID getCustomerUid() {
-		return customerUid;
-	}
-
-	public void setCustomerUid(UUID customerUid) {
-		this.customerUid = customerUid;
 	}	
 }

@@ -9,7 +9,6 @@ public class ContactModelBuilder {
     private UUID contactUid;
     private String contactType;
     private String number;
-    private UUID customerUid;
 
     public ContactModelBuilder() {
     }
@@ -29,17 +28,11 @@ public class ContactModelBuilder {
         return this;
     }
 
-    public ContactModelBuilder customerUid(UUID customerUid) {
-        this.customerUid = customerUid;
-        return this;
-    }
-
     public ContactModel build() {
         return new ContactModel(
             contactUid,
             contactType,
-            number,
-            customerUid
+            number            
         );
     }
 }

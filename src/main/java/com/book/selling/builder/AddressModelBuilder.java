@@ -13,8 +13,7 @@ public class AddressModelBuilder {
     private String city;
     private String state;
     private Long postalCode;
-    private UUID customerUid;
-
+    
     public AddressModelBuilder() {
     }
 
@@ -53,11 +52,6 @@ public class AddressModelBuilder {
         return this;
     }
 
-    public AddressModelBuilder customerUid(UUID customerUid) {
-        this.customerUid = customerUid;
-        return this;
-    }
-
     public AddressModel build() {
         return new AddressModel(
             addressUid,
@@ -66,8 +60,7 @@ public class AddressModelBuilder {
             addressLine3,
             city,
             state,
-            postalCode,
-            customerUid
+            postalCode
         );
     }
 }
