@@ -71,6 +71,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 	CustomerEntity toCustomerEntityBuilder(CustomerModel customerModel) {
 		CustomerEntity customerEntity = customerMapper.toCustomerEntity(customerModel);
+		customerEntity.setCustomerUid(UUID.randomUUID());
+		customerEntity.setCustomerCode(Math.abs(UUID.randomUUID().getMostSignificantBits() % 1_000_0000));
 		customerEntity.setAddressesEntities(customerModel.getAddressModels().stream()
 				.map(addressModel -> toAddressEntity(addressModel, customerEntity)).collect(Collectors.toList()));
 		customerEntity.setContactEntities(customerModel.getContactModels().stream()
@@ -81,12 +83,14 @@ public class CustomerServiceImpl implements CustomerService {
 
 	AddressEntity toAddressEntity(AddressModel addressModel, CustomerEntity customerEntity) {
 		AddressEntity addressEntity = customerMapper.toAddressEntity(addressModel);
+		addressEntity.setAddressUid(UUID.randomUUID());
 		addressEntity.setCustomerEntity(customerEntity);
 		return addressEntity;
 	}
 
 	ContactEntity toContactEntity(ContactModel contactModel, CustomerEntity customerEntity) {
 		ContactEntity contactEntity = customerMapper.toContactEntity(contactModel);
+		contactEntity.setContactUid(UUID.randomUUID());
 		contactEntity.setCustomerEntity(customerEntity);
 		return contactEntity;
 	}
